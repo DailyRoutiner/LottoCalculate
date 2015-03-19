@@ -8,5 +8,9 @@
 </head>
 <body>
 	HelloWorld !!
+	<form action="select.do" method="get">
+		로또 번호 보여주기 
+		${SessionScope.list}
+	</form>
 </body>
 </html>
