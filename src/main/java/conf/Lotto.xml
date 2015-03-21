@@ -4,22 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="LOTTO">
 	<resultMap type="LottoDTO" id="lottoResultMap">
-		<result property="lottonumber" column="LOTTONUMBER" />
-		<result property="count" column="COUNT" />
-		<result property="sectionId" column="SECTIONID" />
+		<result property="numberId" column="NUMBER_ID" />
+		<result property="numeralFrequency" column="NUMERAL_FREQUENCY" />
+		<result property="trun" column="TURN_FK" />
+		<result property="unitId" column="UNIT_ID_FK" />
 	</resultMap>
-
+	
 	<!-- LOTTO 테이블 불러오기  -->
 	<select id="lottoNumList" resultMap="lottoResultMap">
-		SELECT * FROM LOTTONUM;
+		SELECT * FROM NUMERAL_STATS;
 	</select>
 	
-	<select id="sectionPriority" resultMap="lottoResultMap">
-		SELECT L.SECTIONID, SUM(L.COUNT)
-		FROM LOTTONUM L, SECTION S
-		WHERE L.SECTIONID = S.SECTIONID AND 3 >= ROWNUM
-		GROUP BY L.SECTIONID 
-		ORDER BY L.COUNT ASC;
+	<select id="unitPriority" resultMap="lottoResultMap">
+		SELECT N.UNIT_ID_FK, SUM(N.NUMERAL_FREQUENCY)
+		FROM NUMERAL_STATS N, UNIT_STATS U
+		WHERE N.UNIT_ID_FK = U.UNIT_ID AND 3 >= ROWNUM
+		GROUP BY N.UNIT_ID_FK
+		ORDER BY N.NUMERAL_FREQUENCY ASC;
 	</select>
 	
 </mapper>

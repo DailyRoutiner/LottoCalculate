@@ -23,8 +23,8 @@ public class LottoServiceImpl implements LottoService {
 	}
 
 	@Override
-	public List<LottoDTO> sectionPriority() {
-		return lottoDao.sectionPriority();
+	public List<LottoDTO> unitPriority() {
+		return lottoDao.unitPriority();
 	}
 	
 }

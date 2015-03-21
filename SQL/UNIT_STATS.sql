@@ -5,7 +5,6 @@ CREATE table "UNIT_STATS" (
     "UNIT_NUMBER"    NUMBER,
     "UNIT_FREQUENCY" NUMBER,
     constraint  "UNIT_STATS_PK" primary key ("UNIT_ID")
-     
-);
+    );
 
 commit;

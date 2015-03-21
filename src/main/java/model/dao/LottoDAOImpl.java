@@ -24,7 +24,7 @@ public class LottoDAOImpl implements LottoDAO {
 	}
 
 	@Override
-	public List<LottoDTO> sectionPriority() {
+	public List<LottoDTO> unitPriority() {
 		SqlSession session = DBUtil.getSqlSession();
 		List<LottoDTO> spendList = null;
 		try {

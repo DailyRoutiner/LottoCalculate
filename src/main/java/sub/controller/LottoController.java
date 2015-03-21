@@ -32,14 +32,14 @@ public class LottoController {
 		return mv;
 	}
 	
-	@RequestMapping("/sectionPriority.do")
+	@RequestMapping("/unitPriority.do")
 	public ModelAndView sectionPriority(HttpServletRequest req) {
 		List<LottoDTO> lt = null;
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = req.getSession();
-		lt = lottoService.sectionPriority();
-		session.setAttribute("sectionPriority", lt);
-		mv.addObject("sectionPriority", lt);
+		lt = lottoService.unitPriority();
+		session.setAttribute("unitPriority", lt);
+		mv.addObject("unitPriority", lt);
 		mv.setViewName("index");
 		return mv;
 	}	

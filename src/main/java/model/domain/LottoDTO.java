@@ -3,50 +3,64 @@ package model.domain;
 import java.io.Serializable;
 
 public class LottoDTO implements Serializable {
-	private int lottonumber;
-	private int count;
-	private int sectionId;
+	private int numberId;
+	private int numeralFrequency;
+	private int trun;
+	private String unitId;
 	
 	public LottoDTO() {
-		super();
 	}
-	public LottoDTO(int lottonumber, int count, int sectionId) {
-		super();
-		this.lottonumber = lottonumber;
-		this.count = count;
-		this.sectionId = sectionId;
+
+	public LottoDTO(int numberId, String unitId) {
+		this.numberId = numberId;
+		this.unitId = unitId;
 	}
-	public int getLottonumber() {
-		return lottonumber;
-	}
-	public void setLottonumber(int lottonumber) {
-		this.lottonumber = lottonumber;
-	}
-	public int getCount() {
-		return count;
-	}
-	public void setCount(int count) {
-		this.count = count;
+
+	public LottoDTO(int numberId, int numeralFrequency, int trun, String unitId) {
+		this.numberId = numberId;
+		this.numeralFrequency = numeralFrequency;
+		this.trun = trun;
+		this.unitId = unitId;
 	}
 	
-	public int getSectionId() {
-		return sectionId;
+	public int getNumberId() {
+		return numberId;
 	}
-	public void setSectionId(int sectionId) {
-		this.sectionId = sectionId;
+	public void setNumberId(int numberId) {
+		this.numberId = numberId;
 	}
+	public int getNumeralFrequency() {
+		return numeralFrequency;
+	}
+	public void setNumeralFrequency(int numeralFrequency) {
+		this.numeralFrequency = numeralFrequency;
+	}
+	public int getTrun() {
+		return trun;
+	}
+	public void setTrun(int trun) {
+		this.trun = trun;
+	}
+	public String getUnitId() {
+		return unitId;
+	}
+	public void setUnitId(String unitId) {
+		this.unitId = unitId;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("LottoDTO [lottonumber=");
-		builder.append(lottonumber);
-		builder.append(", count=");
-		builder.append(count);
-		builder.append(", sectionId=");
-		builder.append(sectionId);
+		builder.append("LottoDTO [numberId=");
+		builder.append(numberId);
+		builder.append(", numeralFrequency=");
+		builder.append(numeralFrequency);
+		builder.append(", trun=");
+		builder.append(trun);
+		builder.append(", unitId=");
+		builder.append(unitId);
 		builder.append("]");
 		return builder.toString();
 	}
-
 }
 
