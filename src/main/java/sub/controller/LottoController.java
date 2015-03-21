@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class lottoController {
+public class LottoController {
 
 	@Resource(name = "LottoService")
-	private static LottoService lottoService;
+	private LottoService lottoService;
 	
 	@RequestMapping("/hello.do")
 	public ModelAndView hello(HttpServletRequest req) {
