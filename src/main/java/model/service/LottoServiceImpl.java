@@ -16,8 +16,14 @@ public class LottoServiceImpl implements LottoService {
 
 	@Resource(name="LottoDAO")
 	private LottoDAO lottoDao;
+	
 	@Override
 	public List<LottoDTO> lottoNumList() {
 		return lottoDao.LottoNumList();
+	}
+	
+	@Override
+	public List<LottoDTO> sectionPriority() {
+		return lottoDao.sectionPriority();
 	}
 }

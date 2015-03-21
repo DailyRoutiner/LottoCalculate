@@ -6,10 +6,20 @@
 	<resultMap type="LottoDTO" id="lottoResultMap">
 		<result property="lottonumber" column="LOTTONUMBER" />
 		<result property="count" column="COUNT" />
+		<result property="sectionId" column="SECTIONID" />
 	</resultMap>
 
 	<!-- LOTTO 테이블 불러오기  -->
 	<select id="lottoNumList" resultMap="lottoResultMap">
 		SELECT * FROM LOTTONUM;
 	</select>
+	
+	<select id="sectionPriority" resultMap="lottoResultMap">
+		SELECT L.SECTIONID, SUM(L.COUNT)
+		FROM LOTTONUM L, SECTION S
+		WHERE L.SECTIONID = S.SECTIONID AND 3 >= ROWNUM
+		GROUP BY L.SECTIONID 
+		ORDER BY L.COUNT ASC;
+	</select>
+	
 </mapper>
