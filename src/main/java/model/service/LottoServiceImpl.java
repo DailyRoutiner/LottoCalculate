@@ -22,8 +22,4 @@ public class LottoServiceImpl implements LottoService {
 		return lottoDao.LottoNumList();
 	}
 	
-	@Override
-	public List<LottoDTO> sectionPriority() {
-		return lottoDao.sectionPriority();
-	}
 }

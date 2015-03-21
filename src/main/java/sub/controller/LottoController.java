@@ -23,14 +23,19 @@ import org.springframework.web.servlet.ModelAndView;
 public class LottoController {
 
 	@Resource(name = "LottoService")
-	private LottoService lottoService;
-
-	public void service(HttpServletRequest req) {
+	private static LottoService lottoService;
+	
+	@RequestMapping("/hello.do")
+	public ModelAndView hello(HttpServletRequest req) {
 		List<LottoDTO> lt = null;
+		ModelAndView mv = new ModelAndView();
 		HttpSession session = req.getSession();
 		lt = lottoService.lottoNumList();
 		System.out.println(lt);
 		session.setAttribute("list", lt);
+		mv.addObject("list", lt);
+		mv.setViewName("index");
+		return mv;
 	}
-}
 
+}
