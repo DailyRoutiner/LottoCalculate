@@ -32,5 +32,5 @@ public class LottoController {
 		System.out.println(lt);
 		session.setAttribute("list", lt);
 	}
-
 }
+
