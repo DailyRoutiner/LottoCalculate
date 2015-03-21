@@ -20,4 +20,5 @@ public class LottoServiceImpl implements LottoService {
 	public List<LottoDTO> lottoNumList() {
 		return lottoDao.LottoNumList();
 	}
+	
 }
