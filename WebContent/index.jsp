@@ -21,5 +21,10 @@
 		<input type="submit" value="get요청" />
 		</form> 
 		
+		<form action="sectionPriority.do" method="get">
+		${sectionPriority}
+		<input type="submit" value="단위" />
+		</form> 
+		
 </body>
 </html>
