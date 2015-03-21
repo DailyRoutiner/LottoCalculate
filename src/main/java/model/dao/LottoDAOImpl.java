@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import util.DBUtil;
 
-@Repository("lottoDAO")
+@Repository("LottoDAO")
 public class LottoDAOImpl implements LottoDAO {
 	@Override
 	public List<LottoDTO> LottoNumList() {
