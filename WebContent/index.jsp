@@ -15,7 +15,6 @@
 <body>
 	HelloWorld !!
 		로또 번호 보여주기
-		
 		<form action="hello.do" method="get">
 		${list}
 		<input type="submit" value="get요청" />

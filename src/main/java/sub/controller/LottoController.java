@@ -31,11 +31,11 @@ public class LottoController {
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = req.getSession();
 		lt = lottoService.lottoNumList();
-		System.out.println(lt);
 		session.setAttribute("list", lt);
 		mv.addObject("list", lt);
 		mv.setViewName("index");
 		return mv;
 	}
 
+	
 }
