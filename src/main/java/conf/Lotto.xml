@@ -6,12 +6,11 @@
 	<resultMap type="LottoDTO" id="lottoResultMap">
 		<result property="lottonumber" column="LOTTONUMBER" />
 		<result property="count" column="COUNT" />
-		<result property="sectionId" column="SECTIONID" />
 	</resultMap>
 
 	<!-- LOTTO 테이블 불러오기  -->
 	<select id="lottoNumList" resultMap="lottoResultMap">
-		SELECT * FROM LOTTONUM;
+		select * from lottonum
 	</select>
 	
 	<select id="sectionPriority" resultMap="lottoResultMap">
@@ -19,16 +18,7 @@
 		FROM LOTTONUM L, SECTION S
 		WHERE L.SECTIONID = S.SECTIONID AND 3 >= ROWNUM
 		GROUP BY L.SECTIONID 
-		ORDER BY L.COUNT ASC;
+		ORDER BY L.COUNT ASC
 	</select>
 	
-	<select id="selectEndNumber" resultMap="endNumber">
-		select mod(substr(num, 1, instr(num, '/', 1, 1) -1), 10) num_1, 
-			mod(substr(num, instr(num, '/', 1, 1) +1, instr(num, '/', 1, 2) - instr(num, '/', 1, 1) -1), 10) num_2,
-			mod(substr(num, instr(num, '/', 1, 2) +1, instr(num, '/', 1, 3) - instr(num, '/', 1, 2) -1), 10) num_3,
-			mod(substr(num, instr(num, '/', 1, 3) +1, instr(num, '/', 1, 4) - instr(num, '/', 1, 3) -1), 10) num_4,
-			mod(substr(num, instr(num, '/', 1, 4) +1, instr(num, '/', 1, 5) - instr(num, '/', 1, 4) -1), 10) num_5,
-			mod(substr(num, instr(num, '/', 1, 5) +1), 10) num_6
-		from(select winning_number num from TOTAL_RESULT);
-	</select>
 </mapper>

@@ -4,7 +4,7 @@
    		//url 값
    		String path = request.getContextPath();
    		String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-   
+   		out.println(basePath);
    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,6 +17,11 @@
 		로또 번호 보여주기
 		<form action="hello.do" method="get">
 		${list}
+		<input type="submit" value="get요청" />
+		</form> 
+		
+		<form action="endNumber.do" method="get">
+		${endList}
 		<input type="submit" value="get요청" />
 		</form> 
 		

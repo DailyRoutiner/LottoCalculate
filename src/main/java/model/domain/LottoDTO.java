@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class LottoDTO implements Serializable {
 	private int lottonumber;
 	private int count;
-	private int sectionId;
 	
 	public LottoDTO() {
 		super();
@@ -14,7 +13,6 @@ public class LottoDTO implements Serializable {
 		super();
 		this.lottonumber = lottonumber;
 		this.count = count;
-		this.sectionId = sectionId;
 	}
 	public int getLottonumber() {
 		return lottonumber;
@@ -29,12 +27,6 @@ public class LottoDTO implements Serializable {
 		this.count = count;
 	}
 	
-	public int getSectionId() {
-		return sectionId;
-	}
-	public void setSectionId(int sectionId) {
-		this.sectionId = sectionId;
-	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -42,8 +34,6 @@ public class LottoDTO implements Serializable {
 		builder.append(lottonumber);
 		builder.append(", count=");
 		builder.append(count);
-		builder.append(", sectionId=");
-		builder.append(sectionId);
 		builder.append("]");
 		return builder.toString();
 	}
