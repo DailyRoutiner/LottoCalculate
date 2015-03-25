@@ -22,16 +22,4 @@ public class LottoDAOImpl implements LottoDAO {
 		}
 		return spendList;
 	}
-
-	@Override
-	public List<LottoDTO> unitPriority() {
-		SqlSession session = DBUtil.getSqlSession();
-		List<LottoDTO> spendList = null;
-		try {
-			spendList = session.selectList("LOTTO.sectionPriority");
-		} finally {
-			session.close();
-		}
-		return spendList;
-	}
 }
