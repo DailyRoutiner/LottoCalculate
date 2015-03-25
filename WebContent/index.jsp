@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
    <%
    		//url 값
    		String path = request.getContextPath();
@@ -14,25 +15,27 @@
 </head>
 <body>
 	HelloWorld !!
-		로또 번호 보여주기
-		<form action="hello.do" method="get">
-		${list}
-		<input type="submit" value="번호 리턴" />
-		</form> 
-
+ 
 		<form action="endNumber.do" method="get">
 		${endList}
 		<input type="submit" value="끝수 리턴" />
 		</form> 
+		<br><br>
 		
-		<form action="unit.do" method="get">
-		${unitList}
-		<input type="submit" value="유닛" />
+		<form action="unitPriority.do" method="get">
+			Unit 우선순위 3개 <br><br>
+			<c:forEach items="${unitPriority}" var="UnitStatsResultMap">
+				${UnitStatsResultMap.unitId}
+			</c:forEach>
+		<input type="submit" value="Unit" />
 		</form> 
+		<br><br>
 		
 		<form action="updateUnitFrequency.do" method="get">
-			<input type="text" name="unitId" value="단위ID" />
-			<input type="submit" value="유닛업데이트" />
+			번호 통계 (NUMERAL_STATS) 테이블에서 UNIT별 당첨 횟수 계산<br>
+			-> 단위 (UNIT) 테이블에서 단위 별 출현횟수(UNIT_FREQUENCY) UPDATE<br><br>
+			<input type="text" name="unitId" value="ex) A B C D E 중 하나 입력" />
+			<input type="submit" value="Update" />
 		</form> 
 		
 		

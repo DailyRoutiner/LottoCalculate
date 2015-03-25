@@ -18,12 +18,12 @@ public class UnitStatsController {
 	@Resource(name = "UnitStatsService")
 	private UnitStatsService unitStatsService;
 	
-	@RequestMapping("/unit.do")
+	@RequestMapping("/unitPriority.do")
 	public ModelAndView endNumberList(HttpServletRequest request) {
 		List<UnitStatsDTO> list = null;
 		ModelAndView mv = new ModelAndView();
 		list = unitStatsService.unitPriority(); 
-		mv.addObject("unitList", list);
+		mv.addObject("unitPriority", list);
 		mv.setViewName("index");
 		return mv;
 	}
