@@ -1,6 +1,6 @@
 package model.domain;
 
-public class EndNumber {
+public class EndNumberDTO {
 	private int n1;
 	private int n2;
 	private int n3;
@@ -8,11 +8,11 @@ public class EndNumber {
 	private int n5;
 	private int n6;
 	
-	public EndNumber() {
+	public EndNumberDTO() {
 		super();
 	}
 
-	public EndNumber(int n1, int n2, int n3, int n4, int n5, int n6) {
+	public EndNumberDTO(int n1, int n2, int n3, int n4, int n5, int n6) {
 		super();
 		this.n1 = n1;
 		this.n2 = n2;

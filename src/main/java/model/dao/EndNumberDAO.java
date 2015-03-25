@@ -2,8 +2,8 @@ package model.dao;
 
 import java.util.List;
 
-import model.domain.EndNumber;
+import model.domain.EndNumberDTO;
 
 public interface EndNumberDAO {
-	List<EndNumber> numberList();
+	List<EndNumberDTO> numberList();
 }

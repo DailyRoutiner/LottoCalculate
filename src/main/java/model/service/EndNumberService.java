@@ -2,8 +2,8 @@ package model.service;
 
 import java.util.List;
 
-import model.domain.EndNumber;
+import model.domain.EndNumberDTO;
 
 public interface EndNumberService {
-	List<EndNumber> numberList();
+	List<EndNumberDTO> numberList();
 }

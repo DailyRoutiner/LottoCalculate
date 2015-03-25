@@ -9,7 +9,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import model.dao.EndNumberDAO;
-import model.domain.EndNumber;
+import model.domain.EndNumberDTO;
 
 import org.springframework.stereotype.Service;
 
@@ -18,15 +18,16 @@ import org.springframework.stereotype.Service;
 public class EndNumberServiceImpl implements EndNumberService {
 
 	@Resource(name="EndNumberDAO")
-	private EndNumberDAO endNum;
+	private EndNumberDAO endNumberDAO;
 
 	@Override
-	public List<EndNumber> numberList() {
-		List<EndNumber> endList = endNum.numberList();
-		for(EndNumber d : endList){
-			System.out.println(d);
+	public List<EndNumberDTO> numberList() {
+		
+		List<EndNumberDTO> endList = endNumberDAO.numberList();
+		for(EndNumberDTO d : endList){
+			
 		}
-		return endNum.numberList();
+		return endNumberDAO.numberList();
 	}
 
 }

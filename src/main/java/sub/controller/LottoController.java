@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import model.domain.EndNumber;
+import model.domain.EndNumberDTO;
 import model.domain.LottoDTO;
 import model.service.EndNumberService;
 import model.service.LottoService;
@@ -50,7 +50,7 @@ public class LottoController {
 
 	@RequestMapping("/endNumber.do")
 	public ModelAndView endNumberList(HttpServletRequest req) {
-		List<EndNumber> list = null;
+		List<EndNumberDTO> list = null;
 		ModelAndView mv = new ModelAndView();
 		list = endNumberList.numberList(); 
 		mv.addObject("endList", list);

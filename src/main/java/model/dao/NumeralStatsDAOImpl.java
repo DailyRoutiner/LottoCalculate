@@ -12,13 +12,7 @@ public class NumeralStatsDAOImpl implements NumeralStatsDAO{
 	SqlSession session;
 	
 	public int update(NumeralStatsDTO NumeralStats){
-		// TODO Auto-generated method stub
-		
 		int numeral_frequency = session.update("NumeralStats.update", NumeralStats);
-		
 		return numeral_frequency;
-		
 		};
-	
-	
 }
