@@ -15,5 +15,13 @@
 		WHERE 3 >= ROWNUM
 		ORDER BY UNIT_FREQUENCY ASC
 	</select>
-	
+
+	<update id="updateUnitFrequency" parameterType="String">
+		UPDATE UNIT_STATS
+		SET UNIT_FREQUENCY = ( SELECT sum(NUMERAL_FREQUENCY)
+								FROM NUMERAL_STATS
+								WHERE UNIT_ID_FK = #{unitId} )
+		WHERE UNIT_ID = #{unitId}
+	</update>
+
 </mapper>
