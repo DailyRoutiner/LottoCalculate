@@ -1,17 +1,17 @@
 package model.domain;
 
-public class Numeral_StatsDTO {
+public class NumeralStatsDTO {
 	
 	private int number_id;
 	private int numeral_frequency;
 	private int turn_fk;
 	private String unit_id_fk;
 	
-	public Numeral_StatsDTO(){
+	public NumeralStatsDTO(){
 		
 	}
 	
-	public Numeral_StatsDTO(int number_id, int numeral_frequency, int turn_fk,
+	public NumeralStatsDTO(int number_id, int numeral_frequency, int turn_fk,
 			String unit_id_fk) {
 		super();
 		this.number_id = number_id;

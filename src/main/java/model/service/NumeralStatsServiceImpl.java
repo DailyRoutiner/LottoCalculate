@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 
 import model.domain.LottoDTO;
 
-public class Numeral_StatsServiceImpl implements Numeral_StatsService{
+public class NumeralStatsServiceImpl implements NumeralStatsService{
 	
 }
