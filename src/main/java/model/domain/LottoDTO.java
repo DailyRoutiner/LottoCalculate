@@ -7,26 +7,14 @@ public class LottoDTO implements Serializable {
 	private int count;
 	
 	public LottoDTO() {
-		super();
 	}
+	
 	public LottoDTO(int lottonumber, int count, int sectionId) {
 		super();
 		this.lottonumber = lottonumber;
 		this.count = count;
 	}
-	public int getLottonumber() {
-		return lottonumber;
-	}
-	public void setLottonumber(int lottonumber) {
-		this.lottonumber = lottonumber;
-	}
-	public int getCount() {
-		return count;
-	}
-	public void setCount(int count) {
-		this.count = count;
-	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -37,6 +25,5 @@ public class LottoDTO implements Serializable {
 		builder.append("]");
 		return builder.toString();
 	}
-
 }
 
