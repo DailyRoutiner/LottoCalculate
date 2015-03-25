@@ -19,7 +19,7 @@
 	<select id="SelectUnitFrequency" parameterType="String" resultMap="lottoResultMap">
 	    SELECT count(UNIT_ID_FK)
 		FROM NUMERAL_STATS
-		WHERE UNIT_ID_FK = #{unitId};
+		WHERE UNIT_ID_FK = '#{unitId}';
 	</select>
 	
 	<select id="selectEndNumber" resultMap="endNumber">
