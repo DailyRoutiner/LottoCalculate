@@ -30,6 +30,11 @@
 		<input type="submit" value="유닛" />
 		</form> 
 		
+		<form action="updateUnitFrequency.do" method="get">
+			<input type="text" name="unitId" value="단위ID" />
+			<input type="submit" value="유닛업데이트" />
+		</form> 
+		
 		
 </body>
 </html>
