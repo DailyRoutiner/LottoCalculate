@@ -23,4 +23,13 @@
 		ORDER BY N.NUMERAL_FREQUENCY ASC;
 	</select>
 	
+	<select id="selectEndNumber" resultMap="endNumber">
+		select mod(substr(num, 1, instr(num, '/', 1, 1) -1), 10) num_1, 
+			mod(substr(num, instr(num, '/', 1, 1) +1, instr(num, '/', 1, 2) - instr(num, '/', 1, 1) -1), 10) num_2,
+			mod(substr(num, instr(num, '/', 1, 2) +1, instr(num, '/', 1, 3) - instr(num, '/', 1, 2) -1), 10) num_3,
+			mod(substr(num, instr(num, '/', 1, 3) +1, instr(num, '/', 1, 4) - instr(num, '/', 1, 3) -1), 10) num_4,
+			mod(substr(num, instr(num, '/', 1, 4) +1, instr(num, '/', 1, 5) - instr(num, '/', 1, 4) -1), 10) num_5,
+			mod(substr(num, instr(num, '/', 1, 5) +1), 10) num_6
+		from(select winning_number num from TOTAL_RESULT);
+	</select>
 </mapper>
