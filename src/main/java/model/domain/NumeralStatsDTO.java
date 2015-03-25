@@ -1,53 +1,64 @@
 package model.domain;
 
 public class NumeralStatsDTO {
+	private int numberId;
+	private int numeralFrequency;
+	private int turnFk;
+	private String unitIdFk;
+
+	public NumeralStatsDTO(){ }
 	
-	private int number_id;
-	private int numeral_frequency;
-	private int turn_fk;
-	private String unit_id_fk;
-	
-	public NumeralStatsDTO(){
-		
-	}
-	
-	public NumeralStatsDTO(int number_id, int numeral_frequency, int turn_fk,
-			String unit_id_fk) {
-		super();
-		this.number_id = number_id;
-		this.numeral_frequency = numeral_frequency;
-		this.turn_fk = turn_fk;
-		this.unit_id_fk = unit_id_fk;
+	public NumeralStatsDTO(int numberId, int numeralFrequency, int turnFk, String unitIdFk) {
+		this.numberId = numberId;
+		this.numeralFrequency = numeralFrequency;
+		this.turnFk = turnFk;
+		this.unitIdFk = unitIdFk;
 	}
 
-	
-	public int getNumber_id() {
-		return number_id;
+	public int getNumberId() {
+		return numberId;
 	}
-	public void setNumber_id(int number_id) {
-		this.number_id = number_id;
-	}
-	public int getNumeral_frequency() {
-		return numeral_frequency;
-	}
-	public void setNumeral_frequency(int numeral_frequency) {
-		this.numeral_frequency = numeral_frequency;
-	}
-	public int getTurn_fk() {
-		return turn_fk;
-	}
-	public void setTurn_fk(int turn_fk) {
-		this.turn_fk = turn_fk;
-	}
-	public String getUnit_id_fk() {
-		return unit_id_fk;
-	}
-	public void setUnit_id_fk(String unit_id_fk) {
-		this.unit_id_fk = unit_id_fk;
-	}
-	
-	
 
-	
-	
+	public void setNumberId(int numberId) {
+		this.numberId = numberId;
+	}
+
+	public int getNumeralFrequency() {
+		return numeralFrequency;
+	}
+
+	public void setNumeralFrequency(int numeralFrequency) {
+		this.numeralFrequency = numeralFrequency;
+	}
+
+	public int getTurnFk() {
+		return turnFk;
+	}
+
+	public void setTurnFk(int turnFk) {
+		this.turnFk = turnFk;
+	}
+
+	public String getUnitIdFk() {
+		return unitIdFk;
+	}
+
+	public void setUnitIdFk(String unitIdFk) {
+		this.unitIdFk = unitIdFk;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("NumeralStatsDTO [numberId=");
+		builder.append(numberId);
+		builder.append(", numeralFrequency=");
+		builder.append(numeralFrequency);
+		builder.append(", turnFk=");
+		builder.append(turnFk);
+		builder.append(", unitIdFk=");
+		builder.append(unitIdFk);
+		builder.append("]");
+		return builder.toString();
+	}
 }

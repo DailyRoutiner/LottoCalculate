@@ -9,8 +9,7 @@ public class LottoDTO implements Serializable {
 	public LottoDTO() {
 	}
 	
-	public LottoDTO(int lottonumber, int count, int sectionId) {
-		super();
+	public LottoDTO(int lottonumber, int count) {
 		this.lottonumber = lottonumber;
 		this.count = count;
 	}

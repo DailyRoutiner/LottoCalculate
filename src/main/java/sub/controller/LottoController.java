@@ -35,19 +35,6 @@ public class LottoController {
 		return mv;
 	}
 	
-
-	@RequestMapping("/unitPriority.do")
-	public ModelAndView sectionPriority(HttpServletRequest req) {
-		List<LottoDTO> lt = null;
-		ModelAndView mv = new ModelAndView();
-		HttpSession session = req.getSession();
-		lt = lottoService.unitPriority();
-		session.setAttribute("unitPriority", lt);
-		mv.addObject("unitPriority", lt);
-		mv.setViewName("index");
-		return mv;
-	}	
-
 	@RequestMapping("/endNumber.do")
 	public ModelAndView endNumberList(HttpServletRequest req) {
 		List<EndNumber> list = null;

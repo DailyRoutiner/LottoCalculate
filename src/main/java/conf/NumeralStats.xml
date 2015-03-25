@@ -2,8 +2,13 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="NumeralStats">
-	
+<mapper namespace="NUMERALSTATS"> 
+	<resultMap id="NumeralStatsResultMap" type="NumeralStatsDTO">
+		<result property="numberId" column="NUMBER_ID" />
+		<result property="numeralFrequency" column="NUMERAL_FREQUENCY" />
+		<result property="turnFk" column="TURN_FK" />
+		<result property="unitIdFk" column="UNIT_ID_FK" />
+	</resultMap>
 	
 	<!-- 숫자별 당첨횟수 업데이트하기  -->
 	<update id="update">
@@ -11,9 +16,9 @@
 	</update>
 	
 	<!-- 숫자별 당첨횟수 조회하기  -->
-	<select id="read">
+	<select id="read" resultMap="NumeralStatsResultMap">
 	select * from numeral_stats where number_id = #{number_id};
 	</select>
-	
-	
 </mapper>
+
+	

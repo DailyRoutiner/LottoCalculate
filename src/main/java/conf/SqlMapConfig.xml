@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    <typeAliases>
      <typeAlias type="model.domain.LottoDTO" alias="LottoDTO"/>
      <typeAlias type="model.domain.EndNumber" alias="EndNumber"/>
+     <typeAlias type="model.domain.NumeralStatsDTO" alias="NumeralStatsDTO"/>
    </typeAliases>
    
 	<environments default="development">
@@ -32,6 +33,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="conf/Lotto.xml"/>
 		<mapper resource="conf/EndNumber.xml"/>
+		<mapper resource="conf/NumeralStats.xml"/>
 	</mappers>
 </configuration>
 

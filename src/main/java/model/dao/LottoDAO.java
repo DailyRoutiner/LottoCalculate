@@ -6,7 +6,6 @@ import model.domain.LottoDTO;
 
 public interface LottoDAO {
 	List<LottoDTO> LottoNumList();
-	List<LottoDTO> unitPriority();
 }
 
 
