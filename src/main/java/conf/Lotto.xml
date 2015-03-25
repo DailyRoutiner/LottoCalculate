@@ -15,12 +15,11 @@
 		SELECT * FROM NUMERAL_STATS;
 	</select>
 	
-	<select id="unitPriority" resultMap="lottoResultMap">
-		SELECT N.UNIT_ID_FK
-		FROM NUMERAL_STATS N, UNIT_STATS U
-		WHERE N.UNIT_ID_FK = U.UNIT_ID AND ROWNUM >= 3
-		GROUP BY N.UNIT_ID_FK
-		ORDER BY N.NUMERAL_FREQUENCY ASC;
+	<!-- 단위별 횟수 구하기 -->
+	<select id="SelectUnitFrequency" parameterType="String" resultMap="lottoResultMap">
+	    SELECT count(UNIT_ID_FK)
+		FROM NUMERAL_STATS
+		WHERE UNIT_ID_FK = #{unitId};
 	</select>
 	
 	<select id="selectEndNumber" resultMap="endNumber">

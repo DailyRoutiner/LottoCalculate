@@ -11,6 +11,10 @@ public class LottoDTO implements Serializable {
 	public LottoDTO() {
 	}
 
+	public LottoDTO(String unitId) {
+		this.unitId = unitId;
+	}
+
 	public LottoDTO(int numberId, String unitId) {
 		this.numberId = numberId;
 		this.unitId = unitId;
