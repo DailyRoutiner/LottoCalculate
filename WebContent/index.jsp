@@ -25,5 +25,11 @@
 		<input type="submit" value="끝수 리턴" />
 		</form> 
 		
+		<form action="unit.do" method="get">
+		${unitList}
+		<input type="submit" value="유닛" />
+		</form> 
+		
+		
 </body>
 </html>

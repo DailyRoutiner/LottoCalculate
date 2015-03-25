@@ -12,8 +12,6 @@
 	<select id="unitPriority" resultMap="UnitStatsResultMap">
 		SELECT UNIT_ID
 		FROM UNIT_STATS
-		WHERE ROWNUM >= 3
-		ORDER BY UNIT_FREQUENCY ASC;
 	</select>
 	
 	<update id="updateUnitFrequency" parameterType="UnitStatsResultMap">

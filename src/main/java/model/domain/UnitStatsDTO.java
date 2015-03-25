@@ -2,20 +2,25 @@ package model.domain;
 
 import java.io.Serializable;
 
-public class UnitSatatsDTO implements Serializable{
+public class UnitStatsDTO implements Serializable{
 	private String unitId;
 	private int unitNumber;
 	private int unitFrequency;
 	
-	public UnitSatatsDTO() {
+	public UnitStatsDTO() {
 	}
 	
-	public UnitSatatsDTO(String unitId, int unitFrequency) {
+	public UnitStatsDTO(String unitId) {
 		this.unitId = unitId;
-		this.unitFrequency = unitFrequency;
 	}
 	
-	public UnitSatatsDTO(String unitId, int unitNumber, int unitFrequency) {
+	
+	public UnitStatsDTO(String unitId, int unitFrequency) {
+		this.unitId = unitId;
+		this.unitNumber = unitFrequency;
+	}
+	
+	public UnitStatsDTO(String unitId, int unitNumber, int unitFrequency) {
 		this.unitId = unitId;
 		this.unitNumber = unitNumber;
 		this.unitFrequency = unitFrequency;
