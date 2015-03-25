@@ -13,8 +13,7 @@ public class UnitStatsDTO implements Serializable{
 	public UnitStatsDTO(String unitId) {
 		this.unitId = unitId;
 	}
-	
-	
+
 	public UnitStatsDTO(String unitId, int unitFrequency) {
 		this.unitId = unitId;
 		this.unitNumber = unitFrequency;
