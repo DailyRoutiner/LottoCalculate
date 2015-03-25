@@ -17,12 +17,17 @@
 		로또 번호 보여주기
 		<form action="hello.do" method="get">
 		${list}
-		<input type="submit" value="get요청" />
+		<input type="submit" value="번호 리턴" />
 		</form> 
+		
+		<form action="sectionPriority.do" method="get">
+		${sectionPriority}
+		<input type="submit" value="단위" />
+		</form>
 		
 		<form action="endNumber.do" method="get">
 		${endList}
-		<input type="submit" value="get요청" />
+		<input type="submit" value="끝수 리턴" />
 		</form> 
 		
 </body>
