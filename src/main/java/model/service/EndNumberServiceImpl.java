@@ -24,7 +24,7 @@ public class EndNumberServiceImpl implements EndNumberService {
 	public List<EndNumber> numberList() {
 		List<EndNumber> endList = endNum.numberList();
 		for(EndNumber d : endList){
-			
+			System.out.println(d);
 		}
 		return endNum.numberList();
 	}

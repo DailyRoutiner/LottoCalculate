@@ -46,8 +46,4 @@ public class Numeral_StatsDTO {
 		this.unit_id_fk = unit_id_fk;
 	}
 	
-	
-
-	
-	
 }
