@@ -10,10 +10,15 @@
 	</resultMap>
 
 	<select id="unitPriority" resultMap="UnitStatsResultMap">
-		SELECT UNIT_ID
-		FROM UNIT_STATS
+		SELECT UNIT_ID , RATIO
+		FROM (SELECT UNIT_ID, (CASE  UNIT_ID
+								WHEN 'A' THEN UNIT_FREQUENCY * (10/9)
+								WHEN 'E' THEN UNIT_FREQUENCY * (10/6)
+							    ELSE UNIT_FREQUENCY
+							    END) RATIO
+			  FROM UNIT_STATS
+			  ORDER BY RATIO ASC)
 		WHERE 3 >= ROWNUM
-		ORDER BY UNIT_FREQUENCY ASC
 	</select>
 
 	<update id="updateUnitFrequency" parameterType="String">
