@@ -12,8 +12,8 @@
 	<select id="unitPriority" resultMap="UnitStatsResultMap">
 		SELECT UNIT_ID , RATIO
 		FROM (SELECT UNIT_ID, (CASE  UNIT_ID
-								WHEN 'A' THEN UNIT_FREQUENCY * (10/9)
-								WHEN 'E' THEN UNIT_FREQUENCY * (10/6)
+								WHEN 'A' THEN UNIT_FREQUENCY * (10/UNIT_NUMBER)
+								WHEN 'E' THEN UNIT_FREQUENCY * (10/UNIT_NUMBER)
 							    ELSE UNIT_FREQUENCY
 							    END) RATIO
 			  FROM UNIT_STATS
