@@ -6,9 +6,8 @@ public class UnitStatsDTO implements Serializable{
 	private String unitId;
 	private int unitRange;
 	private int unitFrequency;
-		
-	public UnitStatsDTO() {	}
 	
+	public UnitStatsDTO() { }
 	public UnitStatsDTO(String unitId) {
 		this.unitId = unitId;
 	}
