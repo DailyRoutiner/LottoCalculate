@@ -9,5 +9,4 @@
 		<result property="pattern" column="PATTERN" />
 		<result property="patternFrequency" column="PATTERN_FREQUENCY" />
 	</resultMap>
-
 </mapper>

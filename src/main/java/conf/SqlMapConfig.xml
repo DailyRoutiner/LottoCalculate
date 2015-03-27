@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
      <typeAlias type="model.domain.EndNumberDTO" alias="EndNumber"/>
      <typeAlias type="model.domain.NumeralStatsDTO" alias="NumeralStatsDTO"/>
      <typeAlias type="model.domain.UnitStatsDTO" alias="UnitStatsDTO"/>
-     <typeAlias type="model.domain.UnitStatsDTO" alias="UnitPatternDTO"/>
+     <typeAlias type="model.domain.UnitPatternDTO" alias="UnitPatternDTO"/>
    </typeAliases>
    
 	<environments default="development">
