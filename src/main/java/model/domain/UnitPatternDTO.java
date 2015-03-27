@@ -10,6 +10,10 @@ public class UnitPatternDTO implements Serializable{
 	
 	public UnitPatternDTO() { }
 
+	public UnitPatternDTO(String pattern) {
+		this.pattern = pattern;
+	}
+
 	public UnitPatternDTO(int patternId, int unitNumber, String pattern, int patternFrequency) {
 		this.patternId = patternId;
 		this.unitNumber = unitNumber;

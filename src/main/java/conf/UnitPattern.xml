@@ -9,4 +9,11 @@
 		<result property="pattern" column="PATTERN" />
 		<result property="patternFrequency" column="PATTERN_FREQUENCY" />
 	</resultMap>
+	
+	<update id="updatePatternFrequency" parameterType="String">
+		UPDATE UNIT_PATTERN
+		SET PATTERN_FREQUENCY = PATTERN_FREQUENCY + 1
+		WHERE PATTERN = #{pattern}
+	</update>
+
 </mapper>
