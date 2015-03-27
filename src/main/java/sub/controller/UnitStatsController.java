@@ -19,7 +19,7 @@ public class UnitStatsController {
 	private UnitStatsService unitStatsService;
 	
 	@RequestMapping("/unitPriority.do")
-	public ModelAndView endNumberList(HttpServletRequest request) {
+	public ModelAndView unitPriority(HttpServletRequest request) {
 		List<UnitStatsDTO> list = null;
 		ModelAndView mv = new ModelAndView();
 		list = unitStatsService.unitPriority(); 

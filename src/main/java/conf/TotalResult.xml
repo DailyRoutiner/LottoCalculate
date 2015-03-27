@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TOTALRESULT">
+	<resultMap id="TotalResultResultMap" type="TotalResultDTO">
+		<result property="turn" column="TURN" />
+		<result property="winningNumber" column="WINNING_NUMBER" />
+		<result property="bonusNumber" column="BONUS_NUMBER" />
+	</resultMap>
+	
+	<select id="selectWinningNumber" resultMap="TotalResultResultMap">
+		SELECT WINNING_NUMBER
+		FROM TOTAL_RESULT
+	</select>
+</mapper>

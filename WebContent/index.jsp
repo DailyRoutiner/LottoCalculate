@@ -36,8 +36,12 @@
 			-> 단위 (UNIT) 테이블에서 단위 별 출현횟수(UNIT_FREQUENCY) UPDATE<br><br>
 			<input type="text" name="unitId" value="ex) A B C D E 중 하나 입력" />
 			<input type="submit" value="Update" />
-		</form> 
-		
+		</form>
+		<br><br>
+		<form action="selectWinningNumber.do" method="get">
+		${selectWinningNumber}
+		<input type="submit" value="당첨번호" />
+		</form> 		
 		
 </body>
 </html>

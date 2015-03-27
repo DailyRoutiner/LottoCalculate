@@ -15,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
      <typeAlias type="model.domain.NumeralStatsDTO" alias="NumeralStatsDTO"/>
      <typeAlias type="model.domain.UnitStatsDTO" alias="UnitStatsDTO"/>
      <typeAlias type="model.domain.UnitPatternDTO" alias="UnitPatternDTO"/>
+     <typeAlias type="model.domain.TotalResultDTO" alias="TotalResultDTO"/>
    </typeAliases>
    
 	<environments default="development">
@@ -36,6 +37,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="conf/NumeralStats.xml"/>
 		<mapper resource="conf/UnitStats.xml"/>
 		<mapper resource="conf/UnitPattern.xml"/>
+		<mapper resource="conf/TotalResult.xml"/>
 	</mappers>
 </configuration>
 
