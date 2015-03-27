@@ -15,5 +15,13 @@
 		SET PATTERN_FREQUENCY = PATTERN_FREQUENCY + 1
 		WHERE PATTERN = #{pattern}
 	</update>
+	
+	<select id="patternPriority" resultMap="UnitPatternResultMap">
+		SELECT PATTERN, UNIT_NUMBER
+		FROM (SELECT PATTERN, UNIT_NUMBER
+			  FROM UNIT_PATTERN
+			  ORDER BY PATTERN_FREQUENCY DESC)
+		WHERE 3 >= ROWNUM
+	</select>
 
 </mapper>

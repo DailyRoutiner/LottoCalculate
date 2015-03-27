@@ -16,10 +16,6 @@ public class UnitStatsServiceImpl implements UnitStatsService{
 
 	@Override
 	public List<UnitStatsDTO> unitPriority() {
-		List<UnitStatsDTO> unitList = unitStatsDao.unitPriority();
-		for(UnitStatsDTO d : unitList){
-			System.out.println(d);
-		}
 		return unitStatsDao.unitPriority();
 	}
 

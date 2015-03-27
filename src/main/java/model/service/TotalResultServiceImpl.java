@@ -16,10 +16,6 @@ public class TotalResultServiceImpl implements TotalResultService{
 
 	@Override
 	public List<TotalResultDTO> selectWinningNumber() {
-		List<TotalResultDTO> unitList = totalResultDao.selectWinningNumber();
-		for(TotalResultDTO d : unitList){
-			System.out.println(d);
-		}
 		return totalResultDao.selectWinningNumber();
 	}
 }

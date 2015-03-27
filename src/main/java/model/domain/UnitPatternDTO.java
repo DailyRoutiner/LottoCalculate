@@ -13,6 +13,11 @@ public class UnitPatternDTO implements Serializable{
 	public UnitPatternDTO(String pattern) {
 		this.pattern = pattern;
 	}
+	
+	public UnitPatternDTO(int unitNumber, String pattern) {
+		this.unitNumber = unitNumber;
+		this.pattern = pattern;
+	}
 
 	public UnitPatternDTO(int patternId, int unitNumber, String pattern, int patternFrequency) {
 		this.patternId = patternId;

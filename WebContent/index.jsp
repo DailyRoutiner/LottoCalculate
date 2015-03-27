@@ -1,3 +1,4 @@
+<%@page import="sub.controller.UnitPatternController"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -13,6 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 	HelloWorld !!
  
@@ -38,10 +40,9 @@
 			<input type="submit" value="Update" />
 		</form>
 		<br><br>
-		<form action="selectWinningNumber.do" method="get">
-		${selectWinningNumber}
-		<input type="submit" value="당첨번호" />
-		</form> 		
-		
+		<form action="selectWinningNumber.do">
+		패턴 우선순위 / 완성 x
+			<input type="submit" value="패턴" />
+		</form>
 </body>
 </html>
