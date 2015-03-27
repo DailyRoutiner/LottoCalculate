@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class UnitStatsDTO implements Serializable{
 	private String unitId;
-	private int unitNumber;
+	private int unitRange;
 	private int unitFrequency;
-	
-	public UnitStatsDTO() { }
+		
+	public UnitStatsDTO() {	}
 	
 	public UnitStatsDTO(String unitId) {
 		this.unitId = unitId;
@@ -15,12 +15,12 @@ public class UnitStatsDTO implements Serializable{
 
 	public UnitStatsDTO(String unitId, int unitFrequency) {
 		this.unitId = unitId;
-		this.unitNumber = unitFrequency;
+		this.unitFrequency = unitFrequency;
 	}
-	
-	public UnitStatsDTO(String unitId, int unitNumber, int unitFrequency) {
+
+	public UnitStatsDTO(String unitId, int unitRange, int unitFrequency) {
 		this.unitId = unitId;
-		this.unitNumber = unitNumber;
+		this.unitRange = unitRange;
 		this.unitFrequency = unitFrequency;
 	}
 	
@@ -30,11 +30,11 @@ public class UnitStatsDTO implements Serializable{
 	public void setUnitId(String unitId) {
 		this.unitId = unitId;
 	}
-	public int getUnitNumber() {
-		return unitNumber;
+	public int getUnitRange() {
+		return unitRange;
 	}
-	public void setUnitNumber(int unitNumber) {
-		this.unitNumber = unitNumber;
+	public void setUnitRange(int unitRange) {
+		this.unitRange = unitRange;
 	}
 	public int getUnitFrequency() {
 		return unitFrequency;
@@ -46,10 +46,10 @@ public class UnitStatsDTO implements Serializable{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UnitSatatsDTO [unitId=");
+		builder.append("UnitStatsDTO [unitId=");
 		builder.append(unitId);
-		builder.append(", unitNumber=");
-		builder.append(unitNumber);
+		builder.append(", unitRange=");
+		builder.append(unitRange);
 		builder.append(", unitFrequency=");
 		builder.append(unitFrequency);
 		builder.append("]");
