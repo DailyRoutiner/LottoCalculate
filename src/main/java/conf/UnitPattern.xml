@@ -10,15 +10,23 @@
 		<result property="patternFrequency" column="PATTERN_FREQUENCY" />
 	</resultMap>
 	
+	<!-- 패턴 출현 빈도 초기화 -->
+	<update id="initialization">
+		UPDATE UNIT_PATTERN
+		SET PATTERN_FREQUENCY = 0
+	</update>
+	
+	<!-- 패턴 출현 빈도 카운트 -->
 	<update id="updatePatternFrequency" parameterType="String">
 		UPDATE UNIT_PATTERN
 		SET PATTERN_FREQUENCY = PATTERN_FREQUENCY + 1
 		WHERE PATTERN = #{pattern}
 	</update>
 	
+	<!-- 패턴 우선순위 -->
 	<select id="patternPriority" resultMap="UnitPatternResultMap">
-		SELECT PATTERN, UNIT_NUMBER
-		FROM (SELECT PATTERN, UNIT_NUMBER
+		SELECT *
+		FROM (SELECT *
 			  FROM UNIT_PATTERN
 			  ORDER BY PATTERN_FREQUENCY DESC)
 		WHERE 3 >= ROWNUM

@@ -27,8 +27,10 @@ public class TotalResultController {
 	public ModelAndView selectWinningNumber(HttpServletRequest request) {
 		List<TotalResultDTO> list = null;
 		ModelAndView mv = new ModelAndView();
-		list = totalResultService.selectWinningNumber(); 
-
+		list = totalResultService.selectWinningNumber(); 	
+		
+		unitPatternService.initialization();
+		
 		for(TotalResultDTO total : list){
 			int[] unit = new int[5];
 			String pattern = null;

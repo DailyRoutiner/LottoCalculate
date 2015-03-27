@@ -13,11 +13,11 @@ import util.DBUtil;
 public class UnitStatsDAOImpl implements UnitStatsDAO {
 
 	@Override
-	public List<UnitStatsDTO> unitPriority() {
+	public List<UnitStatsDTO> unitPriority(int number) {
 		SqlSession session = DBUtil.getSqlSession();
 		List<UnitStatsDTO> unitList = null;
 		try {
-			unitList = session.selectList("UNITSTATS.unitPriority");
+			unitList = session.selectList("UNITSTATS.unitPriority", number);
 		} finally {
 			session.close();
 		}

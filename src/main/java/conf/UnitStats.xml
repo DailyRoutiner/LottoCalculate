@@ -8,8 +8,9 @@
 		<result property="unitRange" column="UNIT_RANGE" />
 		<result property="unitFrequency" column="UNIT_FREQUENCY" />
 	</resultMap>
-
-	<select id="unitPriority" resultMap="UnitStatsResultMap">
+	
+	<!-- 단위 우선순위 -->
+	<select id="unitPriority" parameterType="int" resultMap="UnitStatsResultMap">
 		SELECT UNIT_ID , RATIO
 		FROM (SELECT UNIT_ID, (CASE  UNIT_ID
 							   WHEN 'A' THEN UNIT_FREQUENCY * (10/UNIT_RANGE)
@@ -18,9 +19,10 @@
 							   END) RATIO
 			  FROM UNIT_STATS
 			  ORDER BY RATIO ASC)
-		WHERE 3 >= ROWNUM
+		WHERE #{number} >= ROWNUM
 	</select>
-
+	
+	<!-- 단위 별 출현 빈도 카운트 -->
 	<update id="updateUnitFrequency" parameterType="String">
 		UPDATE UNIT_STATS
 		SET UNIT_FREQUENCY = (SELECT SUM(NUMERAL_FREQUENCY)

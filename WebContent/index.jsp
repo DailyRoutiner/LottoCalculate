@@ -16,8 +16,6 @@
 </head>
 
 <body>
-	HelloWorld !!
- 
 		<form action="endNumber.do" method="get">
 		${endList}
 		<input type="submit" value="끝수 리턴" />
@@ -25,7 +23,7 @@
 		<br><br>
 		
 		<form action="unitPriority.do" method="get">
-			Unit 우선순위 3개 <br><br>
+			Unit 우선순위  <br><br>
 			<c:forEach items="${unitPriority}" var="UnitStatsResultMap">
 				${UnitStatsResultMap.unitId}
 			</c:forEach>
@@ -41,7 +39,16 @@
 		</form>
 		<br><br>
 		<form action="selectWinningNumber.do">
-		패턴 우선순위 / 완성 x
+			패턴 출현 횟수 UPDATE<br><br>
+			<input type="submit" value="패턴 출현 횟수" />
+		</form>
+		<br><br>
+		
+		<form action="patternPriority.do">
+			패턴 우선순위<br><br>
+			<c:forEach items="${patternPriority}" var="UnitPatternResultMap">
+				${UnitPatternResultMap.pattern} / 
+			</c:forEach>
 			<input type="submit" value="패턴" />
 		</form>
 </body>

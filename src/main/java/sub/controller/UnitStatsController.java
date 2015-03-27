@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import model.domain.UnitStatsDTO;
+import model.service.UnitPatternService;
 import model.service.UnitStatsService;
 
 import org.springframework.stereotype.Controller;
@@ -18,12 +19,25 @@ public class UnitStatsController {
 	@Resource(name = "UnitStatsService")
 	private UnitStatsService unitStatsService;
 	
+	@Resource(name = "UnitPatternService")
+	private UnitPatternService unitPatternService;
+	
 	@RequestMapping("/unitPriority.do")
 	public ModelAndView unitPriority(HttpServletRequest request) {
-		List<UnitStatsDTO> list = null;
+		List<UnitStatsDTO> unitList = null;
+		/*수정 중
+		List<UnitPatternDTO> patternList = null;
 		ModelAndView mv = new ModelAndView();
-		list = unitStatsService.unitPriority(); 
-		mv.addObject("unitPriority", list);
+		patternList = unitPatternService.patternPriority();
+		
+		for(UnitPatternDTO pattern : patternList){
+			unitList = unitStatsService.unitPriority(pattern.getUnitNumber());
+			mv.addObject("unitPriority", unitList);
+		}
+		*/
+		ModelAndView mv = new ModelAndView();
+		unitList = unitStatsService.unitPriority(4); // 4는 test 값
+		mv.addObject("unitPriority", unitList);
 		mv.setViewName("index");
 		return mv;
 	}

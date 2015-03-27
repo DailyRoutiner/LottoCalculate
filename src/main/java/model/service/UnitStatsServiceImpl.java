@@ -15,8 +15,8 @@ public class UnitStatsServiceImpl implements UnitStatsService{
 	private UnitStatsDAO unitStatsDao;
 
 	@Override
-	public List<UnitStatsDTO> unitPriority() {
-		return unitStatsDao.unitPriority();
+	public List<UnitStatsDTO> unitPriority(int number) {
+		return unitStatsDao.unitPriority(number);
 	}
 
 	@Override
