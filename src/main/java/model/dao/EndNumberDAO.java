@@ -1,10 +1,11 @@
 package model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import model.domain.EndNumberDTO;
 
 public interface EndNumberDAO {
-	List<EndNumberDTO> totalNumberList();
-	List<EndNumberDTO> tenNumberList();
+	Map<Integer,Integer> totalNumberList();
+	Map<Integer,Integer> tenNumberList();
 }

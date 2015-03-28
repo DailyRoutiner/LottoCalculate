@@ -5,5 +5,5 @@ import java.util.Map;
 
 
 public interface EndNumberService {
-	List<Map> numberList();
+	List<Integer> getEndNumberList();
 }

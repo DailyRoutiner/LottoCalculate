@@ -20,9 +20,9 @@ public class LottoController {
 	
 	@RequestMapping("/endNumber.do")
 	public ModelAndView endNumberList(HttpServletRequest req) {
-		List<Map> list = null;
+		List<Integer> list = null;
 		ModelAndView mv = new ModelAndView();
-		list = endNumberList.numberList(); 
+		list = endNumberList.getEndNumberList(); 
 		mv.addObject("endList", list);
 		mv.setViewName("index");
 		return mv;
