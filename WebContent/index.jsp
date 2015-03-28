@@ -52,5 +52,16 @@
 			</c:forEach>
 			<input type="submit" value="패턴" />
 		</form>
+		
+		<form action="numeralstatslist.do">
+			번호 우선순위<br><br>
+<%-- 			<c:forEach items="${read}" var="NumeralStatsResultMap">
+				${NumeralStatsResultMap.numberId} / 
+			</c:forEach> --%>
+			<input type="text" value="번호입력" />
+			<input type="submit" value="번호번호" />
+			<br><br><br><br>
+		</form>
+	
 </body>
 </html>

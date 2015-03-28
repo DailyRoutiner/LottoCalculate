@@ -12,12 +12,13 @@
 
 	<!-- 숫자별 당첨횟수 업데이트하기  -->
 	<update id="update">
-	update numeral_stats set numeral_frequency = (SELECT COUNT(*) FROM total_result WHERE winning_number like '#{number_id:INTEGER}/%') where number_id #{number_id:INTEGER};
+	update numeral_stats set numeral_frequency = (SELECT COUNT(*) FROM total_result WHERE winning_number like '#{number_id:INTEGER}/%') where number_id #{number_id:INTEGER}
 	</update>
 	
 	<!-- 숫자별 당첨횟수 조회하기  -->
 	<select id="read" resultMap="NumeralStatsResultMap">
-	select * from numeral_stats where number_id = #{number_id};
+	select * from numeral_stats where numeral_frequency = #{numeral_frequency}
+	<!-- select * from numeral_stats where number_id = #{number_id}; -->
 	</select>
 	
 	<!-- 랜덤 뽑기 -->
