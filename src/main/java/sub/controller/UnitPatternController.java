@@ -50,19 +50,6 @@ public class UnitPatternController {
 		
 		List<UnitStatsDTO> unitPriority = null;
 		unitPriority = unitStatsService.unitPriority(4);
-		/* 수정중
-		for(int i=0; i<list.size(); i++){
-			//System.out.println(unitPriority.get(i).getUnitId());
-			String pattern = (list.get(i).getPattern()).substring(1, 14);
-			String token = null;
-			StringTokenizer st = new StringTokenizer(pattern, ",");
-			while(st.hasMoreTokens()){
-				token = st.nextToken();
-					int number = Integer.parseInt(token);
-			}
-			//randomNumberService.randomNumber(new RandomNumberDTO());
-		}
-		*/
 		
 		return mv;
 	}
