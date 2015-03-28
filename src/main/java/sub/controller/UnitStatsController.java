@@ -22,26 +22,18 @@ public class UnitStatsController {
 	@Resource(name = "UnitPatternService")
 	private UnitPatternService unitPatternService;
 	
+	//단위 우선순위
 	@RequestMapping("/unitPriority.do")
 	public ModelAndView unitPriority(HttpServletRequest request) {
 		List<UnitStatsDTO> unitList = null;
-		/*수정 중
-		List<UnitPatternDTO> patternList = null;
 		ModelAndView mv = new ModelAndView();
-		patternList = unitPatternService.patternPriority();
-		
-		for(UnitPatternDTO pattern : patternList){
-			unitList = unitStatsService.unitPriority(pattern.getUnitNumber());
-			mv.addObject("unitPriority", unitList);
-		}
-		*/
-		ModelAndView mv = new ModelAndView();
-		unitList = unitStatsService.unitPriority(4); // 4는 test 값
+		unitList = unitStatsService.unitPriority(5);
 		mv.addObject("unitPriority", unitList);
 		mv.setViewName("index");
 		return mv;
 	}
 	
+	//단위 출현 빈호 업데이트
 	@RequestMapping(value = "/updateUnitFrequency.do")
 	public String updateUnitFrequency(HttpServletRequest request,	
 			@RequestParam("unitId") String unitId) {

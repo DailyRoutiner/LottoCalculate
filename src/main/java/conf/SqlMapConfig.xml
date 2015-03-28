@@ -16,7 +16,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
      <typeAlias type="model.domain.UnitStatsDTO" alias="UnitStatsDTO"/>
      <typeAlias type="model.domain.UnitPatternDTO" alias="UnitPatternDTO"/>
      <typeAlias type="model.domain.TotalResultDTO" alias="TotalResultDTO"/>
-     <typeAlias type="model.domain.RandomNumberDTO" alias="RandomNumberDTO"/>
    </typeAliases>
    
 	<environments default="development">

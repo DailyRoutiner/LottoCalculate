@@ -23,6 +23,7 @@ public class TotalResultController {
 	@Resource(name = "UnitPatternService")
 	private UnitPatternService unitPatternService;
 	
+	//당첨번호 패턴 - 출현 빈도 카운트
 	@RequestMapping("/selectWinningNumber.do")
 	public ModelAndView selectWinningNumber(HttpServletRequest request) {
 		List<TotalResultDTO> list = null;

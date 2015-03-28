@@ -20,19 +20,6 @@
 	select * from numeral_stats where numeral_frequency = #{numeral_frequency}
 	<!-- select * from numeral_stats where number_id = #{number_id}; -->
 	</select>
-	
-	<!-- 랜덤 뽑기 -->
-	<select id="randomNumber" parameterType="RandomNumberDTO" resultMap="NumeralStatsResultMap">
-		SELECT NUMBER_ID
-		FROM (SELECT NUMBER_ID
-		      FROM NUMERAL_STATS
-		      WHERE UNIT_ID_FK = #{unitId}
-		      ORDER BY DBMS_RANDOM.RANDOM()
-    		  )
-		WHERE #{randomNum} >= ROWNUM
-	</select>
-	
-
 </mapper>
 
 	

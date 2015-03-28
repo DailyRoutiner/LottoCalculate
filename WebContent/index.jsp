@@ -33,14 +33,16 @@
 		
 		<form action="updateUnitFrequency.do" method="get">
 			번호 통계 (NUMERAL_STATS) 테이블에서 UNIT별 당첨 횟수 계산<br>
-			-> 단위 (UNIT) 테이블에서 단위 별 출현횟수(UNIT_FREQUENCY) UPDATE<br><br>
+			-> 단위 (UNIT) 테이블에서 단위 별 출현횟수(UNIT_FREQUENCY) UPDATE<br>
+			-> DB에서 업데이트<br><br>
 			<input type="text" name="unitId" value="ex) A B C D E 중 하나 입력" />
 			<input type="submit" value="Update" />
 		</form>
 		<br><br>
 		
 		<form action="selectWinningNumber.do">
-			패턴 출현 횟수 UPDATE<br><br>
+			패턴 출현 횟수 UPDATE<br>
+			-> DB에서 업데이트<br><br>
 			<input type="submit" value="패턴 출현 횟수" />
 		</form>
 		<br><br>
@@ -52,6 +54,7 @@
 			</c:forEach>
 			<input type="submit" value="패턴" />
 		</form>
+		<br><br>
 		
 		<form action="numeralstatslist.do">
 			번호 우선순위<br><br>
