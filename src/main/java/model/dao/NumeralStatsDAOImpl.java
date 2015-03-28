@@ -29,6 +29,16 @@ public class NumeralStatsDAOImpl implements NumeralStatsDAO{
 		return NumeralStatsDTO;
 		
 	}
+
+	@Override
+	public float getStat(int number) {
+		SqlSession session = DBUtil.getSqlSession();
+		try {
+			return session.selectOne("NUMERALSTATS.getStat", number);
+		}finally{
+			session.close();
+		}
+	}
 	
 	
 /*	public int update(NumeralStatsDTO NumeralStats){

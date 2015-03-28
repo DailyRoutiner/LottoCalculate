@@ -24,14 +24,13 @@ public class NumeralStatsController {
 	public NumeralStatsService NumeralStatsService;
 	
 	@RequestMapping("numeralstatslist.do")
-	public ModelAndView numeralstatslist(){
+	public ModelAndView numeralstatslist() {
+		ModelAndView mv = new ModelAndView();
+		List<NumeralStatsDTO> numeralstatslist = NumeralStatsService.list(); /*service.list();*/
+		mv.addObject("NUMERALSTATS",numeralstatslist);
+		mv.addObject("stat", NumeralStatsService.getStat(1));
+		mv.setViewName("numeralstatslist");
 		
-	ModelAndView mv = new ModelAndView();
-	List<NumeralStatsDTO> numeralstatslist = NumeralStatsService.list(); /*service.list();*/
-	mv.addObject("NUMERALSTATS",numeralstatslist);
-	mv.setViewName("numeralstatslist");
-	
-	return mv;
-	
+		return mv;
 	}
 }

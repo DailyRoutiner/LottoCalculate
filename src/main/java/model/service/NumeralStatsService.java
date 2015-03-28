@@ -7,4 +7,5 @@ public interface NumeralStatsService {
 	
 	public List<NumeralStatsDTO> list();
 	
+	public float getStat(int number);
 }

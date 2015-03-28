@@ -24,5 +24,10 @@ public class NumeralStatsServiceImpl implements NumeralStatsService{
 	public List<NumeralStatsDTO> list(){
 		return NumeralStatsDAO.list();
 	}
+
+	@Override
+	public float getStat(int number) {
+		return NumeralStatsDAO.getStat(number);
+	}
 	
 }
