@@ -1,9 +1,9 @@
 package model.service;
 
 import java.util.List;
+import java.util.Map;
 
-import model.domain.EndNumberDTO;
 
 public interface EndNumberService {
-	List<EndNumberDTO> numberList();
+	List<Map> numberList();
 }
