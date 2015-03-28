@@ -17,9 +17,23 @@
 	
 	<!-- 숫자별 당첨횟수 조회하기  -->
 	<select id="read" resultMap="NumeralStatsResultMap">
-	select * from numeral_stats where numeral_frequency = #{numeral_frequency}
+	select * from numeral_stats
 	<!-- select * from numeral_stats where number_id = #{number_id}; -->
 	</select>
-</mapper>
-
 	
+	<!-- 숫자별 나올 확률 -->
+	<select id="probability">
+	SELECT COUNT(*)/(max(turn)*5)  FROM total_result WHERE winning_number like '#{numeral_probality}/%' or winning_number like '%/#{numeral_probality}/%' or winning_number like '%/#{numeral_probality}'
+	</select>
+	
+	<select id="getStat" parameterType="int" resultType="float">
+		SELECT 
+			COUNT(*)/(max(turn)*5)  FROM total_result 
+		WHERE 
+			winning_number like #{numeral_probality} || '/%' 
+			or winning_number like '%/' || #{numeral_probality} || '/%' 
+			or winning_number like '%/' || #{numeral_probality}
+	</select>
+	
+
+</mapper>
