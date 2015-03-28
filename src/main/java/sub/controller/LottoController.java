@@ -1,6 +1,7 @@
 package sub.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,7 @@ public class LottoController {
 	
 	@RequestMapping("/endNumber.do")
 	public ModelAndView endNumberList(HttpServletRequest req) {
-		List<EndNumberDTO> list = null;
+		List<Map> list = null;
 		ModelAndView mv = new ModelAndView();
 		list = endNumberList.numberList(); 
 		mv.addObject("endList", list);

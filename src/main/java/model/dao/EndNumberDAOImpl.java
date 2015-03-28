@@ -13,11 +13,23 @@ import util.DBUtil;
 public class EndNumberDAOImpl implements EndNumberDAO {
 
 	@Override
-	public List<EndNumberDTO> numberList() {
+	public List<EndNumberDTO> totalNumberList() {
 		SqlSession session = DBUtil.getSqlSession();
 		List<EndNumberDTO> endList = null;
 		try {
 			endList = session.selectList("ENDNUMBER.selectEndNumber");
+		} finally {
+			session.close();
+		}
+		return endList;
+	}
+	
+	@Override
+	public List<EndNumberDTO> tenNumberList() {
+		SqlSession session = DBUtil.getSqlSession();
+		List<EndNumberDTO> endList = null;
+		try {
+			endList = session.selectList("ENDNUMBER.selectTenEndNumber");
 		} finally {
 			session.close();
 		}

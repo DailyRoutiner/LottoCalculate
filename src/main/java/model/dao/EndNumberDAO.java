@@ -5,5 +5,6 @@ import java.util.List;
 import model.domain.EndNumberDTO;
 
 public interface EndNumberDAO {
-	List<EndNumberDTO> numberList();
+	List<EndNumberDTO> totalNumberList();
+	List<EndNumberDTO> tenNumberList();
 }
