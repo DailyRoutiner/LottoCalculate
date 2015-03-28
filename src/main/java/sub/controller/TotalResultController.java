@@ -37,21 +37,23 @@ public class TotalResultController {
 			String pattern = null;
 			String token = null;
 			StringTokenizer st = new StringTokenizer(total.getWinningNumber(), "/");
+			
 			while(st.hasMoreTokens()){
 				token = st.nextToken();
-					int number = Integer.parseInt(token);
-					if(number < 10) {
-						unit[0]++;
-					}else if(number>=10 && number <20){
-						unit[1]++;							
-					}else if(number>=20 && number <30){
-						unit[2]++;						
-					}else if(number>=30 && number <40){
-						unit[3]++;						
-					}else if(number>=40 && number <46){
-						unit[4]++;						
-					}
+				int number = Integer.parseInt(token);
+				if(number < 10) {
+					unit[0]++;
+				}else if(number>=10 && number <20){
+					unit[1]++;							
+				}else if(number>=20 && number <30){
+					unit[2]++;						
+				}else if(number>=30 && number <40){
+					unit[3]++;						
+				}else if(number>=40 && number <46){
+					unit[4]++;						
+				}
 			}
+			
 			Arrays.sort(unit);
 			pattern = Arrays.toString(unit);
 			unitPatternService.updatePatternFrequency(pattern);
@@ -61,6 +63,5 @@ public class TotalResultController {
 		mv.setViewName("index");
 
 		return mv;
-	}
-	
+	}	
 }

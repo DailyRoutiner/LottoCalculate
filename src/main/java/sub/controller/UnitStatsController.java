@@ -33,7 +33,7 @@ public class UnitStatsController {
 		return mv;
 	}
 	
-	//단위 출현 빈호 업데이트
+	//단위 출현 빈도 업데이트
 	@RequestMapping(value = "/updateUnitFrequency.do")
 	public String updateUnitFrequency(HttpServletRequest request,	
 			@RequestParam("unitId") String unitId) {

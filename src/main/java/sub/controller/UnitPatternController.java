@@ -26,7 +26,7 @@ public class UnitPatternController {
 	@Resource(name = "UnitStatsService")
 	private UnitStatsService unitStatsService;
 	
-	//패턴 출현 빈호 업데이트
+	//패턴 출현 빈도 업데이트
 	@RequestMapping(value = "/updatePatternFrequency.do")
 	public String updatePatternFrequency(HttpServletRequest request,	
 			@RequestParam("pattern") String pattern) {
@@ -43,7 +43,6 @@ public class UnitPatternController {
 		List<UnitPatternDTO> list = null;
 		list = unitPatternService.patternPriority();
 		ModelAndView mv = new ModelAndView();
-		
 		mv.addObject("patternPriority", list);
 		mv.setViewName("index");
 		
@@ -64,18 +63,21 @@ public class UnitPatternController {
 		StringTokenizer st = new StringTokenizer(pattern, ",");
 		int temp[] = new int[5];
 		int i = 0;
+		
 		while(st.hasMoreTokens()){
 			token = st.nextToken();
-				int number = Integer.parseInt(token);
-				temp[i]=number;
-				i++;
+			int number = Integer.parseInt(token);
+			temp[i]=number;
+			i++;
 		}
 
 		int z = i-1;
+		
 		for(int j=0; j<i; j++){
 			hashMap.put(unitList.get(j).getUnitId(), temp[z]);
 			z--;
 		}
+		
 		System.out.println(hashMap);
 		return hashMap;
 	}
