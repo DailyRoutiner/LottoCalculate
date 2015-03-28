@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UNITPATTERN">
+	<resultMap id="UnitPatternResultMap" type="UnitPatternDTO">
+		<result property="patternId" column="PATTERN_ID" />
+		<result property="unitNumber" column="UNIT_NUMBER" />
+		<result property="pattern" column="PATTERN" />
+		<result property="patternFrequency" column="PATTERN_FREQUENCY" />
+	</resultMap>
+	
+	<!-- 패턴 출현 빈도 초기화 -->
+	<update id="initialization">
+		UPDATE UNIT_PATTERN
+		SET PATTERN_FREQUENCY = 0
+	</update>
+	
+	<!-- 패턴 출현 빈도 카운트 -->
+	<update id="updatePatternFrequency" parameterType="String">
+		UPDATE UNIT_PATTERN
+		SET PATTERN_FREQUENCY = PATTERN_FREQUENCY + 1
+		WHERE PATTERN = #{pattern}
+	</update>
+	
+	<!-- 패턴 우선순위 -->
+	<select id="patternPriority" resultMap="UnitPatternResultMap">
+		SELECT *
+		FROM (SELECT *
+			  FROM UNIT_PATTERN
+			  ORDER BY PATTERN_FREQUENCY DESC)
+		WHERE 3 >= ROWNUM
+	</select>
+
+</mapper>

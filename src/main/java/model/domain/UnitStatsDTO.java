@@ -2,22 +2,24 @@ package model.domain;
 
 import java.io.Serializable;
 
-public class UnitSatatsDTO implements Serializable{
+public class UnitStatsDTO implements Serializable{
 	private String unitId;
-	private int unitNumber;
+	private int unitRange;
 	private int unitFrequency;
 	
-	public UnitSatatsDTO() {
+	public UnitStatsDTO() { }
+	public UnitStatsDTO(String unitId) {
+		this.unitId = unitId;
 	}
-	
-	public UnitSatatsDTO(String unitId, int unitFrequency) {
+
+	public UnitStatsDTO(String unitId, int unitFrequency) {
 		this.unitId = unitId;
 		this.unitFrequency = unitFrequency;
 	}
-	
-	public UnitSatatsDTO(String unitId, int unitNumber, int unitFrequency) {
+
+	public UnitStatsDTO(String unitId, int unitRange, int unitFrequency) {
 		this.unitId = unitId;
-		this.unitNumber = unitNumber;
+		this.unitRange = unitRange;
 		this.unitFrequency = unitFrequency;
 	}
 	
@@ -27,11 +29,11 @@ public class UnitSatatsDTO implements Serializable{
 	public void setUnitId(String unitId) {
 		this.unitId = unitId;
 	}
-	public int getUnitNumber() {
-		return unitNumber;
+	public int getUnitRange() {
+		return unitRange;
 	}
-	public void setUnitNumber(int unitNumber) {
-		this.unitNumber = unitNumber;
+	public void setUnitRange(int unitRange) {
+		this.unitRange = unitRange;
 	}
 	public int getUnitFrequency() {
 		return unitFrequency;
@@ -43,10 +45,10 @@ public class UnitSatatsDTO implements Serializable{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UnitSatatsDTO [unitId=");
+		builder.append("UnitStatsDTO [unitId=");
 		builder.append(unitId);
-		builder.append(", unitNumber=");
-		builder.append(unitNumber);
+		builder.append(", unitRange=");
+		builder.append(unitRange);
 		builder.append(", unitFrequency=");
 		builder.append(unitFrequency);
 		builder.append("]");

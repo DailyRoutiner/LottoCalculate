@@ -5,20 +5,30 @@
 <mapper namespace="UNITSTATS">
 	<resultMap id="UnitStatsResultMap" type="UnitStatsDTO">
 		<result property="unitId" column="UNIT_ID" />
-		<result property="unitNumber" column="UNIT_NUMBER" />
+		<result property="unitRange" column="UNIT_RANGE" />
 		<result property="unitFrequency" column="UNIT_FREQUENCY" />
 	</resultMap>
-
-	<select id="unitPriority" resultMap="UnitStatsResultMap">
-		SELECT UNIT_ID
-		FROM UNIT_STATS
-		WHERE ROWNUM >= 3
-		ORDER BY UNIT_FREQUENCY ASC;
+	
+	<!-- 단위 우선순위 -->
+	<select id="unitPriority" parameterType="int" resultMap="UnitStatsResultMap">
+		SELECT UNIT_ID , RATIO
+		FROM (SELECT UNIT_ID, (CASE  UNIT_ID
+							   WHEN 'A' THEN UNIT_FREQUENCY * (10/UNIT_RANGE)
+							   WHEN 'E' THEN UNIT_FREQUENCY * (10/UNIT_RANGE)
+							   ELSE UNIT_FREQUENCY
+							   END) RATIO
+			  FROM UNIT_STATS
+			  ORDER BY RATIO ASC)
+		WHERE #{number} >= ROWNUM
 	</select>
 	
-	<update id="updateUnitFrequency" parameterType="UnitStatsResultMap">
+	<!-- 단위 별 출현 빈도 카운트 -->
+	<update id="updateUnitFrequency" parameterType="String">
 		UPDATE UNIT_STATS
-		SET UNIT_FREQUENCY = #{unitFrequency}
+		SET UNIT_FREQUENCY = (SELECT SUM(NUMERAL_FREQUENCY)
+							  FROM NUMERAL_STATS
+							  WHERE UNIT_ID_FK = #{unitId})
 		WHERE UNIT_ID = #{unitId}
 	</update>
+
 </mapper>

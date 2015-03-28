@@ -19,6 +19,7 @@
 	<select id="read" resultMap="NumeralStatsResultMap">
 	select * from numeral_stats where number_id = #{number_id};
 	</select>
+
 </mapper>
 
 	

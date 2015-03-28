@@ -11,9 +11,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     
    <!-- 클래스들의 전체경로에 이름(별칭) 만들기 -->
    <typeAliases>
-     <typeAlias type="model.domain.LottoDTO" alias="LottoDTO"/>
      <typeAlias type="model.domain.EndNumberDTO" alias="EndNumber"/>
      <typeAlias type="model.domain.NumeralStatsDTO" alias="NumeralStatsDTO"/>
+     <typeAlias type="model.domain.UnitStatsDTO" alias="UnitStatsDTO"/>
+     <typeAlias type="model.domain.UnitPatternDTO" alias="UnitPatternDTO"/>
+     <typeAlias type="model.domain.TotalResultDTO" alias="TotalResultDTO"/>
    </typeAliases>
    
 	<environments default="development">
@@ -31,9 +33,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	
 	<mappers>
-		<mapper resource="conf/Lotto.xml"/>
 		<mapper resource="conf/EndNumber.xml"/>
 		<mapper resource="conf/NumeralStats.xml"/>
+		<mapper resource="conf/UnitStats.xml"/>
+		<mapper resource="conf/UnitPattern.xml"/>
+		<mapper resource="conf/TotalResult.xml"/>
 	</mappers>
 </configuration>
 
