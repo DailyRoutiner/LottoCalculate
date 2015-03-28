@@ -38,6 +38,7 @@
 			<input type="submit" value="Update" />
 		</form>
 		<br><br>
+		
 		<form action="selectWinningNumber.do">
 			패턴 출현 횟수 UPDATE<br><br>
 			<input type="submit" value="패턴 출현 횟수" />

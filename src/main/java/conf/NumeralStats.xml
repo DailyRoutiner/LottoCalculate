@@ -9,7 +9,7 @@
 		<result property="turnFk" column="TURN_FK" />
 		<result property="unitIdFk" column="UNIT_ID_FK" />
 	</resultMap>
-	
+
 	<!-- 숫자별 당첨횟수 업데이트하기  -->
 	<update id="update">
 	update numeral_stats set numeral_frequency = (SELECT COUNT(*) FROM total_result WHERE winning_number like '#{number_id:INTEGER}/%') where number_id #{number_id:INTEGER}
@@ -20,6 +20,18 @@
 	select * from numeral_stats where numeral_frequency = #{numeral_frequency}
 	<!-- select * from numeral_stats where number_id = #{number_id}; -->
 	</select>
+	
+	<!-- 랜덤 뽑기 -->
+	<select id="randomNumber" parameterType="RandomNumberDTO" resultMap="NumeralStatsResultMap">
+		SELECT NUMBER_ID
+		FROM (SELECT NUMBER_ID
+		      FROM NUMERAL_STATS
+		      WHERE UNIT_ID_FK = #{unitId}
+		      ORDER BY DBMS_RANDOM.RANDOM()
+    		  )
+		WHERE #{randomNum} >= ROWNUM
+	</select>
+	
 
 </mapper>
 
