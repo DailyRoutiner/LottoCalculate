@@ -9,9 +9,14 @@
 		<result property="bonusNumber" column="BONUS_NUMBER" />
 	</resultMap>
 	
+	<select id="selectTenWinningNumber" resultMap="TotalResultResultMap">
+		select * from TOTAL_RESULT
+		where 10 >= rownum
+	</select>
+	
 	<!-- 당첨번호 조회 -->
 	<select id="selectWinningNumber" resultMap="TotalResultResultMap">
-		SELECT WINNING_NUMBER
+		SELECT *
 		FROM TOTAL_RESULT
 	</select>
 </mapper>

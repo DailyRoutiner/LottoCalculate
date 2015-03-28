@@ -1,11 +1,10 @@
 package model.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.domain.EndNumberDTO;
+import model.domain.TotalResultDTO;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -21,13 +20,13 @@ public class EndNumberDAOImpl implements EndNumberDAO {
 	@Override
 	public Map<Integer,Integer> totalNumberList() {
 		SqlSession session = DBUtil.getSqlSession();
-		List<EndNumberDTO> endList = null;
+		List<TotalResultDTO> endList = null;
 		try {
-			endList = session.selectList("ENDNUMBER.selectEndNumber");
+			endList = session.selectList("TOTALRESULT.selectWinningNumber");
 			
 			if(turn.isEmpty()){
 				// 총 끝수 샘
-				for (EndNumberDTO d : endList) {
+				for (TotalResultDTO d : endList) {
 					String[] str = d.getWinningNumber().split("/");
 
 					for (int t = 0; t < str.length; t++)
@@ -62,12 +61,12 @@ public class EndNumberDAOImpl implements EndNumberDAO {
 	@Override
 	public Map<Integer, Integer> tenNumberList() {
 		SqlSession session = DBUtil.getSqlSession();
-		List<EndNumberDTO> endList2 = null;
+		List<TotalResultDTO> endList2 = null;
 		try {
-			endList2 = session.selectList("ENDNUMBER.selectTenEndNumber");
+			endList2 = session.selectList("TOTALRESULT.selectTenWinningNumber");
 			if(turn10.isEmpty()){
 				// 10개의 끝수 샘플
-				for (EndNumberDTO d : endList2) {
+				for (TotalResultDTO d : endList2) {
 					String[] str = d.getWinningNumber().split("/");
 
 					for (int t = 0; t < str.length; t++)
@@ -82,8 +81,7 @@ public class EndNumberDAOImpl implements EndNumberDAO {
 						}
 
 						if (sameCount == 1) {
-							if (!turn10.containsKey(temp[i] % 10)) { // 해당 끝수번호 포함
-																		// 확인
+							if (!turn10.containsKey(temp[i] % 10)) { // 해당 끝수번호 포함 확인
 								turn10.put(temp[i] % 10, 1);
 							} else {
 								int t = turn10.get(temp[i] % 10) + 1;

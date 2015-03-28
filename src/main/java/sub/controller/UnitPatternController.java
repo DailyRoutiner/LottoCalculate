@@ -78,7 +78,6 @@ public class UnitPatternController {
 			z--;
 		}
 		
-		System.out.println(hashMap);
 		return hashMap;
 	}
 }
