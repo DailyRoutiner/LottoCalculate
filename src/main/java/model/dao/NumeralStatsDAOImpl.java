@@ -5,8 +5,6 @@ import java.util.List;
 import model.domain.NumeralStatsDTO;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import util.DBUtil;
@@ -28,6 +26,16 @@ public class NumeralStatsDAOImpl implements NumeralStatsDAO{
 		
 		return NumeralStatsDTO;
 		
+	}
+
+	@Override
+	public float getStat(int number) {
+		SqlSession session = DBUtil.getSqlSession();
+		try {
+			return session.selectOne("NUMERALSTATS.getStat", number);
+		}finally{
+			session.close();
+		}
 	}
 	
 	

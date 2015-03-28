@@ -8,12 +8,9 @@
 </head>
 <body>
 
-	<table  style="font-size:13px; position:absolute; top:50%; left:50%; margin-left: -500px; margin-top: -300px;" frame="void" width="1100" cellpadding="0" cellspacing="0" border="1">
-
-	
-			${NUMERALSTATS}
-		
-	</table>
+	${NUMERALSTATS},
+	<br>
+	${stat}
 	
 </body>
 </html>

@@ -1,15 +1,15 @@
 package sub.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import model.domain.RandomNumberDTO;
 import model.domain.UnitPatternDTO;
 import model.domain.UnitStatsDTO;
-import model.service.RandomNumberService;
 import model.service.UnitPatternService;
 import model.service.UnitStatsService;
 
@@ -23,12 +23,10 @@ public class UnitPatternController {
 	@Resource(name = "UnitPatternService")
 	private UnitPatternService unitPatternService;
 	
-	@Resource(name = "RandomNumberService")
-	private RandomNumberService randomNumberService;
-	
 	@Resource(name = "UnitStatsService")
 	private UnitStatsService unitStatsService;
 	
+	//패턴 출현 빈도 업데이트
 	@RequestMapping(value = "/updatePatternFrequency.do")
 	public String updatePatternFrequency(HttpServletRequest request,	
 			@RequestParam("pattern") String pattern) {
@@ -39,31 +37,48 @@ public class UnitPatternController {
 		return page;
 	}
 	
+	//패턴 우선순위
 	@RequestMapping("/patternPriority.do")
 	public ModelAndView patternPriority(HttpServletRequest request) {
 		List<UnitPatternDTO> list = null;
-		
+		list = unitPatternService.patternPriority();
 		ModelAndView mv = new ModelAndView();
-		list = unitPatternService.patternPriority(); 
 		mv.addObject("patternPriority", list);
 		mv.setViewName("index");
 		
-		List<UnitStatsDTO> unitPriority = null;
-		unitPriority = unitStatsService.unitPriority(4);
-		/* 수정중
-		for(int i=0; i<list.size(); i++){
-			//System.out.println(unitPriority.get(i).getUnitId());
-			String pattern = (list.get(i).getPattern()).substring(1, 14);
-			String token = null;
-			StringTokenizer st = new StringTokenizer(pattern, ",");
-			while(st.hasMoreTokens()){
-				token = st.nextToken();
-					int number = Integer.parseInt(token);
-			}
-			//randomNumberService.randomNumber(new RandomNumberDTO());
-		}
-		*/
-		
 		return mv;
+	}
+
+	//끝수패턴으로 (단위+패턴) 정보 전달 - Map 형태
+	public Map<String, Integer> hashMap() {
+		List<UnitStatsDTO> unitList = unitStatsService.unitPriority(5);
+		Map<String, Integer> hashMap = new HashMap<String, Integer>();
+
+		String pattern = unitPatternService.patternPriority().get(0).getPattern(); 
+		pattern = pattern.replaceAll(" ", "");
+		pattern = pattern.substring(1, 10);
+		pattern = pattern.replaceAll("0,", "");
+
+		String token = null;
+		StringTokenizer st = new StringTokenizer(pattern, ",");
+		int temp[] = new int[5];
+		int i = 0;
+		
+		while(st.hasMoreTokens()){
+			token = st.nextToken();
+			int number = Integer.parseInt(token);
+			temp[i]=number;
+			i++;
+		}
+
+		int z = i-1;
+		
+		for(int j=0; j<i; j++){
+			hashMap.put(unitList.get(j).getUnitId(), temp[z]);
+			z--;
+		}
+		
+		System.out.println(hashMap);
+		return hashMap;
 	}
 }

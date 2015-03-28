@@ -6,9 +6,7 @@ import javax.annotation.Resource;
 
 import model.domain.NumeralStatsDTO;
 import model.service.NumeralStatsService;
-import model.service.UnitPatternService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,14 +22,13 @@ public class NumeralStatsController {
 	public NumeralStatsService NumeralStatsService;
 	
 	@RequestMapping("numeralstatslist.do")
-	public ModelAndView numeralstatslist(){
+	public ModelAndView numeralstatslist() {
+		ModelAndView mv = new ModelAndView();
+		List<NumeralStatsDTO> numeralstatslist = NumeralStatsService.list(); /*service.list();*/
+		mv.addObject("NUMERALSTATS",numeralstatslist);
+		mv.addObject("stat", NumeralStatsService.getStat(1));
+		mv.setViewName("numeralstatslist");
 		
-	ModelAndView mv = new ModelAndView();
-	List<NumeralStatsDTO> numeralstatslist = NumeralStatsService.list(); /*service.list();*/
-	mv.addObject("NUMERALSTATS",numeralstatslist);
-	mv.setViewName("numeralstatslist");
-	
-	return mv;
-	
+		return mv;
 	}
 }

@@ -9,7 +9,7 @@
 		<result property="bonusNumber" column="BONUS_NUMBER" />
 	</resultMap>
 	
-	<!-- 당첨번호 불러오기 -->
+	<!-- 당첨번호 조회 -->
 	<select id="selectWinningNumber" resultMap="TotalResultResultMap">
 		SELECT WINNING_NUMBER
 		FROM TOTAL_RESULT

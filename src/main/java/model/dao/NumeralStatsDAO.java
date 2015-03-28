@@ -8,4 +8,5 @@ public interface NumeralStatsDAO{
 
 	public List<NumeralStatsDTO> list();
 	
+	public float getStat(int number);
 }
