@@ -35,7 +35,7 @@ public class EndNumberServiceImpl implements EndNumberService {
 		}
 		Arrays.sort(temp);
 		reverseArrayfloat(temp);
-		for(int i =0 ;i<tenTurn ;i++){ 
+		for(int i =0 ;i<6 ;i++){ 
 			list.put((endList.get(i)/totalTurn) - (endList2.get(i)/tenTurn), i);
 		}
 		

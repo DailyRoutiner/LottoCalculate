@@ -16,15 +16,15 @@ public class NumeralStatsDAOImpl implements NumeralStatsDAO{
 	@Override
 	public List<NumeralStatsDTO> list(){
 		SqlSession session = DBUtil.getSqlSession();
-		List<NumeralStatsDTO> NumeralStatsDTO= null;
+		List<NumeralStatsDTO> numeralStatsDTO= null;
 		
 		try {
-			NumeralStatsDTO = session.selectList("NUMERALSTATS.read");
+			numeralStatsDTO = session.selectList("NUMERALSTATS.read");
 		}finally{
 			session.close();
 		}
 		
-		return NumeralStatsDTO;
+		return numeralStatsDTO;
 		
 	}
 
