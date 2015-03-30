@@ -14,10 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class NumeralStatsController {
-
-/*	@Autowired
-	NumeralStatsService service;
-*/		
 	@Resource(name = "NumeralStatsService")
 	public NumeralStatsService NumeralStatsService;
 	
@@ -26,7 +22,7 @@ public class NumeralStatsController {
 		ModelAndView mv = new ModelAndView();
 		List<NumeralStatsDTO> numeralstatslist = NumeralStatsService.list(); /*service.list();*/
 		mv.addObject("NUMERALSTATS",numeralstatslist);
-		mv.addObject("stat", NumeralStatsService.getStat(1));
+
 		mv.setViewName("numeralstatslist");
 		
 		return mv;
