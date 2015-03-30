@@ -56,8 +56,10 @@ public class LottoController {
 		int[] count = new int[5];
 		
 		for(int i =0 ;i<list.size() ; i++){
+			// 끝수 패턴 우선순위로 정렬
 			temp = sortEndPattern(list, lottoList, i);
 			
+			// 구간 패턴 적용하여 높은 확률의 로또 번호 추출
 			for(int t=0; t<temp.length ; t++){
 				if (pattern.containsKey("A")) {
 					if (1 <= lottoList.get(temp[t]) && lottoList.get(temp[t]) < 10) {
